@@ -33,10 +33,15 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@kallivdh'
 
-      - name: Run merge tasks
+      - name: Install
         uses: borales/actions-yarn@v4
         with:
           cmd: install
+      
+      - name: Build
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build
 
       - name: Publish
         uses: borales/actions-yarn@v4
