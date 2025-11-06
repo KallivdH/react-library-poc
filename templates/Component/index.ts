@@ -1,1 +1,1 @@
-export {TemplateName} from './TemplateName.tsx';
+export {TemplateName} from './TemplateName';
