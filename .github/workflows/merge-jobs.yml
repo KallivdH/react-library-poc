@@ -42,5 +42,5 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: publish # will run `yarn npm publish` command
-          env:
+        env:
             NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}       
