@@ -29,18 +29,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NVMRC }}
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@kallivdh'
 
       - name: Run merge tasks
         uses: borales/actions-yarn@v4
         with:
           cmd: install # will run `yarn install` command
 
-      - name: Publish NPM package
-        uses: actions/setup-node@v4
+      - name: NPM Publish
+        uses: borales/actions-yarn@v4
         with:
-          registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@kallivdh'
-          env:
-            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          cmd: npm publish
+          cmd: npm publish # will run `yarn npm publish` command
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
