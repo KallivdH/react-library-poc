@@ -38,7 +38,9 @@ jobs:
         with:
           cmd: install # will run `yarn install` command
 
-      - name: Publish to GitHub Packages
-        uses: simenandre/publish-with-yarn@v1
+      - name: Publish
+        uses: borales/actions-yarn@v4
         with:
-          npm-auth-token: ${{ secrets.GITHUB_TOKEN }}
+          cmd: publish # will run `yarn npm publish` command
+          env:
+            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}       
