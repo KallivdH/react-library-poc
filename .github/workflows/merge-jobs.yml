@@ -43,4 +43,4 @@ jobs:
         with:
           cmd: publish # will run `yarn npm publish` command
         env:
-            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}       
+            YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}       
