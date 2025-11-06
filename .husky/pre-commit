@@ -1,2 +1,2 @@
-pnpm run lint-staged
-pnpm run lint:types
+yarn run lint-staged
+yarn run lint:types
