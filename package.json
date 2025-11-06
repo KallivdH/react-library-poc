@@ -2,7 +2,7 @@
   "name": "@kallivdh/react-library-poc",
   "homepage": "https://morewings.github.io/react-library-template/",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.0.0",
   "type": "module",
   "files": [
     "dist"
@@ -41,7 +41,7 @@
   ],
   "description": "Missing React, typescript NPM library creation template",
   "scripts": {
-    "dev": "vite",
+    "dev": "yarn link && vite build --watch",
     "clean:lib": "rm -rf dist",
     "build:lib": "vite build",
     "build": "run-s clean:lib build:lib",
