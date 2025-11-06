@@ -1,13 +1,20 @@
 {
-  "name": "react-library-template",
+  "name": "@kallivdh/react-library-poc",
   "homepage": "https://morewings.github.io/react-library-template/",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "main": "./dist/index.umd.cjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kallivdh/react-library-poc.git"
+  },
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
