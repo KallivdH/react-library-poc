@@ -6,13 +6,14 @@ import {kitchen} from 'alias-kitchen';
 import external from '@yelo/rollup-node-external';
 import dts from 'vite-plugin-dts';
 import postcssPresetEnv from 'postcss-preset-env';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 // https://vitejs.dev/config/
 export default defineConfig({
     resolve: {
         alias: kitchen({recipe: 'rollup'}),
     },
-    plugins: [react(), dts({rollupTypes: true, exclude: ['**/*.stories.(ts|tsx)']})],
+    plugins: [react(), dts({rollupTypes: true, exclude: ['**/*.stories.(ts|tsx)']}), cssInjectedByJsPlugin()],
     build: {
         sourcemap: true,
         lib: {
@@ -22,6 +23,7 @@ export default defineConfig({
             // the proper extensions will be added
             fileName: 'index',
         },
+        cssCodeSplit: false, // Bundle all CSS together
         rollupOptions: {
             // make sure to externalize deps that shouldn't be bundled
             // into your library
@@ -35,9 +37,11 @@ export default defineConfig({
             },
         },
     },
+
     css: {
         modules: {
             localsConvention: 'camelCase',
+            generateScopedName: '[name]__[local]___[hash:base64:5]',
         },
         postcss: {
             plugins: [postcssPresetEnv({stage: 1})],
